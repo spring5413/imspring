@@ -14,7 +14,7 @@ MANAGERS = ADMINS
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql', # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
-        'NAME': 'taotime',                      # Or path to database file if using sqlite3.
+        'NAME': 'imspring',                      # Or path to database file if using sqlite3.
         'USER': 'root',                      # Not used with sqlite3.
         'PASSWORD': '1234',                  # Not used with sqlite3.
         'HOST': 'localhost',                      # Set to empty string for localhost. Not used with sqlite3.
@@ -126,6 +126,7 @@ INSTALLED_APPS = (
     # 'django.contrib.admindocs',
     'imspring.user',
     'imspring.accounts',
+    'blog',
 )
 AUTH_PROFILE_MODULE = "accounts.UserProfile"
 # A sample logging configuration. The only tangible logging
@@ -133,6 +134,10 @@ AUTH_PROFILE_MODULE = "accounts.UserProfile"
 # the site admins on every HTTP 500 error when DEBUG=False.
 # See http://docs.djangoproject.com/en/dev/topics/logging for
 # more details on how to customize your logging configuration.
+try:
+    LOG_ROOT = LOG_ROOT
+except:
+    LOG_ROOT = "/data/logs/msgcopy_web_app/"
 LOGGING = {
     'version': 1,
     'disable_existing_loggers': False,
@@ -141,12 +146,29 @@ LOGGING = {
             '()': 'django.utils.log.RequireDebugFalse'
         }
     },
+    'formatters': {
+        'verbose': {
+            'format': '%(levelname)s %(asctime)s %(module)s %(process)d %(thread)d %(message)s'
+        },
+        'simple': {
+            'format': '%(levelname)s %(asctime)s %(module)s.%(funcName)s:%(lineno)d %(message)s'
+        },
+        'data': {
+            'format': '%(asctime)s|%(message)s',
+        },
+    },
     'handlers': {
         'mail_admins': {
             'level': 'ERROR',
             'filters': ['require_debug_false'],
             'class': 'django.utils.log.AdminEmailHandler'
-        }
+        },
+        'console': {
+            'level': 'DEBUG',
+            'class': 'logging.StreamHandler',
+            'formatter':'simple',
+        },
+
     },
     'loggers': {
         'django.request': {
@@ -154,5 +176,11 @@ LOGGING = {
             'level': 'ERROR',
             'propagate': True,
         },
+        'root': {
+            'handlers': ['console'],
+            'level': 'DEBUG',
+            'propagate': True,
+        },
+
     }
 }
