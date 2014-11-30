@@ -3,14 +3,22 @@
 	<head>
 		<meta charset="utf-8">
 		<title>imspring</title>
-		<script type="text/javascript" src="{{STATIC_URL}}js/extra/jquery.js"></script>
+		<link type="text/css" rel="stylesheet" href="{{STATIC_URL}}css/common.css"/>
 	</head>
 	<body>
-		index.html
+		<div id="header">
+			<div class="header-wrap clearfix">
+				
+			</div>
+		</div>
+		<div id="band">
+			
+		</div>
+		<script type="text/javascript" src="{{STATIC_URL}}js/extra/jquery.js"></script>
 		<script type="text/javascript">
 			$(function(){
 				$.ajax({
-					url:"iapi/user/login/",
+					url:"/iapi/user/login/",
 					type:"POST",
 					data:{username:"spring",password:"1"},
 					statusCode:{

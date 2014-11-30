@@ -30,7 +30,7 @@ TIME_ZONE = 'Asia/Shanghai'
 
 # Language code for this installation. All choices can be found here:
 # http://www.i18nguy.com/unicode/language-identifiers.html
-LANGUAGE_CODE = 'zh-cn'
+LANGUAGE_CODE = 'zh_CN'
 
 SITE_ID = 1
 
@@ -129,6 +129,14 @@ INSTALLED_APPS = (
     'blog',
 )
 AUTH_PROFILE_MODULE = "accounts.UserProfile"
+
+#try to load my_settings.py 
+try:
+    from my_settings import *
+except:
+    print 'not import my_settings'
+    traceback.print_exc()
+    pass
 # A sample logging configuration. The only tangible logging
 # performed by this configuration is to send an email to
 # the site admins on every HTTP 500 error when DEBUG=False.
