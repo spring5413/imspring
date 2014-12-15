@@ -2,8 +2,11 @@
 <html>
 	<head>
 		<meta charset="utf-8">
-		<title>imspring</title>
+		<title>爱暮雪</title>
 		<link type="text/css" rel="stylesheet" href="{{STATIC_URL}}css/common.css"/>
+		<style type="text/css">
+		#band .band-bg{background:url({{STATIC_URL}}img/band-bg.jpg) no-repeat center;}
+		</style>
 	</head>
 	<body>
 		<div id="header">
@@ -12,8 +15,12 @@
 			</div>
 		</div>
 		<div id="band">
-			
+			<div class="band-bg"></div>
+			<div class="band-wrap">
+				<h1>编织未来，成就梦想</h1>
+			</div>
 		</div>
+		
 		<script type="text/javascript" src="{{STATIC_URL}}js/extra/jquery.js"></script>
 		<script type="text/javascript">
 			$(function(){
@@ -21,9 +28,7 @@
 					url:"/iapi/user/login/",
 					type:"POST",
 					data:{username:"spring",password:"1"},
-					statusCode:{
-						
-					}
+					statusCode:{}
 				});
 			});
 		</script>
