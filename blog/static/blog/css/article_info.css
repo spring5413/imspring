@@ -1,1 +1,3 @@
 #main .container{width:980px;margin:0 auto;background-color:#FFF;}
+#main .container .title{font-weight:bold;text-align:center;}
+#main iframe{width:100%;height:800px;}

@@ -19,7 +19,7 @@
 		<script type="text/template" id="tmpl-articles">
 			<% _.each(articles, function(article) { %>
 				<li>
-					<a href="/blog/<%= article.id %>/">
+					<a href="/blog/<%= article.id %>/" target="_blank">
 						<div class="img_wrap">
 							<% if(article.thumbnail) { %>
 								<img src="<%= article.thumbnail %>"/>
