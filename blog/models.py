@@ -6,7 +6,7 @@ class ArticleClassify(models.Model):
     desc = models.CharField(max_length = 200,blank = True)
     
     def _valueDict(self):
-        return {"id":self.id,"title":self.title,"desc":self.desc,"articles":[a for a in self.articles.all()]}
+        return {"id":self.id,"title":self.title,"desc":self.desc,"articles":[a._valueSimp() for a in self.articles.all()]}
     
 class Article(models.Model):
     title = models.CharField(max_length = 50)
@@ -17,6 +17,11 @@ class Article(models.Model):
     ctime = models.DateTimeField(auto_now_add = True)
     utime = models.DateTimeField(auto_now = True)
     classify = models.ForeignKey(ArticleClassify,related_name="articles")
+    ctype = models.CharField(max_length = 50,blank = True)
+    thumbnail = models.CharField(max_length = 500,blank = True)
+
+    def _valueSimp(self):
+        return {"id":self.id,"title":self.title,"ctime":self.ctime,"ctype":self.ctype,"thumbnail":self.thumbnail,"desc":self.desc}
     
 
     

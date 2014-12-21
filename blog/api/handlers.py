@@ -9,7 +9,7 @@ from django.shortcuts import get_object_or_404
 log = logging.getLogger('root')
 
 class ArticleHandler(BaseHandler):
-    fields = ("id","title","content","desc","source","like","ctime","utime","classify")
+    fields = ("id","title","content","desc","source","like","ctime","utime","classify","ctype","thumbnail")
     allowed_methods = ('GET','POST','PUT','DELETE')
     model = Article
     
@@ -33,6 +33,7 @@ class ArticleHandler(BaseHandler):
         desc ：收藏描述（可选）
         like ： 赞
         source ： 收藏来源
+        ctype : 收藏内容类型 （链接：link）  （可选） 默认是按照纯文字展现
         """
         f = ArticleForm(request.POST)
         if f.is_valid():

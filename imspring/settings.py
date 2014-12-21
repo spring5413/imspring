@@ -7,6 +7,7 @@ import os
 base_dir = os.path.abspath(os.path.dirname(__file__))
 ADMINS = (
     # ('Your Name', 'your_email@example.com'),
+    ('wangcp',"997042400@qq.com")
 )
 
 MANAGERS = ADMINS
