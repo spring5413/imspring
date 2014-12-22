@@ -1,3 +1,7 @@
+#header{background-color:black;color:#FFF;height:60px;margin-bottom:20px;}
+#header a.logo{color:#FFF;line-height:60px;font-size:16px;}
+#header .container,#main .container{width:1200px;margin:0 auto;}
+
 #main .container{width:980px;margin:0 auto;background-color:#FFF;}
 #main .container .title{font-weight:bold;text-align:center;}
 #main iframe{width:100%;height:800px;}

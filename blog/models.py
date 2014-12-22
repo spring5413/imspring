@@ -7,7 +7,9 @@ class ArticleClassify(models.Model):
     
     def _valueDict(self):
         return {"id":self.id,"title":self.title,"desc":self.desc,"articles":[a._valueSimp() for a in self.articles.all()]}
-    
+    def _valueDictSimp(self):
+        return {"id":self.id,"title":self.title,"desc":self.desc}
+
 class Article(models.Model):
     title = models.CharField(max_length = 50)
     desc = models.CharField(max_length = 200,blank = True)

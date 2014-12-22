@@ -4,7 +4,7 @@ $(function(){
 	snow_sdk.ajax("/iapi/blog/article/"+ article_id +"/","GET","",function(data){
 		var $main = $("#main"),
 			$con = $main.find(".container>.content");
-		$main.find("h3.title").html(data["title"]);
+		$main.find("h2.title").html(data["title"]);
 		$con.empty();
 		if(data["ctype"] == "link"){
 			$con.html($("<iframe src='"+ data["content"] +"'></iframe>"));

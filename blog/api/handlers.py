@@ -87,7 +87,7 @@ class ArticleClassifyHandler(BaseHandler):
             return classify._valueDict()
         else:
             classifys = ArticleClassify.objects.all()
-            return [c._valueDict() for c in classifys]
+            return [c._valueDictSimp() for c in classifys]
     def create(self,request, *args, **kwargs):
         """
         创建收藏分类
