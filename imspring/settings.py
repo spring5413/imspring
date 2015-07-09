@@ -1,4 +1,5 @@
 # Django settings for taotime project.
+import traceback
 
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
